@@ -12,13 +12,6 @@ node {
         }
     }
     
-    stage('Build') {
-        dir('api-automation-mocha-chai-javascriptFramework') {
-            // Run Tests
-            bat 'npm run test1'
-        }
-    }
-    
     stage('Test') {
         dir('api-automation-mocha-chai-javascriptFramework') {
             // Run Tests
