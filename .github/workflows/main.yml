@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -22,12 +22,10 @@ jobs:
           node-version: 'latest'
 
       - name: Install Dependencies
-        run: 
-          npm install
+        run: npm install
 
       - name: Build and Test
-        run: 
-          npm test
+        run: npm test
 
       - name: Deploy
         run: echo "Deployed successfully"
