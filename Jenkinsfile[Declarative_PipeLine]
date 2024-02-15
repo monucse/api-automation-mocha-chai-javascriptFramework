@@ -20,21 +20,11 @@ pipeline {
              
             }
         }
-        
-        stage('Build') {
-            steps {
-                dir('api-automation-mocha-chai-javascriptFramework') {
-                    // Run Tests
-                    bat 'npm run test1'
-                }
-            }
-        }
-        
+    
         stage('Test') {
             steps {
                 // Run tests
                 dir('api-automation-mocha-chai-javascriptFramework') {
-                    // Run Tests
                     bat 'npm test'
                 }            
             }
