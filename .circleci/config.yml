@@ -14,11 +14,11 @@ jobs:
 
       - run:
           name: Build and Test
-          command: node --version
+          command: node --version && npm --version
 
       - run:
           name: Deploy
-          command: npm --version
+          command: npm run test
 
 workflows:
   version: 2
