@@ -1,1 +1,32 @@
+version: 2.1
 
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Dependencies
+          command: |
+            cd apiFramework
+            npm install
+
+      - run:
+          name: Build and Test
+          command: |
+            cd apijavascriptFramework
+            npm run test1
+            npm test
+
+      - run:
+          name: Deploy
+          command: echo "Deployed successfully"
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
