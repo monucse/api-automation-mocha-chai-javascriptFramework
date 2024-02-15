@@ -19,12 +19,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 18.x
+          node-version: latest
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Build and Test
+      - name: Test
         run: npm test
 
       - name: Deploy
