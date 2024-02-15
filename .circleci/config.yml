@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: node:18.18.0
+      - image: node:latest
 
     steps:
       - checkout
@@ -14,11 +14,11 @@ jobs:
 
       - run:
           name: Build and Test
-          command: node --version && npm --version
+          command: npm test
 
       - run:
           name: Deploy
-          command: npm run test
+          command: echo "Deployed Successfully"
 
 workflows:
   version: 2
