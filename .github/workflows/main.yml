@@ -1,12 +1,17 @@
 name: Api Testing CI
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose environment"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
 
 jobs:
   build:
@@ -15,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref_name }} # branch chosen in Actions UI
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -28,4 +35,4 @@ jobs:
         run: npm test
 
       - name: Deploy
-        run: echo "Deployed successfully"
+        run: echo "Deployed successfully to ${{ github.event.inputs.environment }}"
